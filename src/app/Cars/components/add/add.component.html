@@ -1,0 +1,35 @@
+<div>
+    <form [formGroup]="form">
+        <div class="mb-3">
+          <label for="placa" class="form-label">Placa</label>
+          <input placeholder="placa" formControlName="placa" type="text" class="form-control" id="placa" name="placa" aria-describedby="placa">
+        </div>
+        
+        <div class="mb-3">
+          <label for="chassi" class="form-label">Chassi</label>
+          <input placeholder="chassi" formControlName="chassi" type="text" class="form-control" id="chassi" name="chassi" aria-describedby="chassi">
+        </div>
+
+        <div class="mb-3">
+          <label for="renavam" class="form-label">Renavam</label>
+          <input placeholder="renavam" formControlName="renavam" type="text" class="form-control" id="renavam" name="renavam" aria-describedby="renavam">
+        </div>
+
+        <div class="mb-3">
+          <label for="modelo" class="form-label">Modelo</label>
+          <input placeholder="modelo" formControlName="modelo" type="text" class="form-control" id="modelo" name="modelo" aria-describedby="modelo">
+        </div>
+
+        <div class="mb-3">
+          <label for="marca" class="form-label">Marca</label>
+          <input placeholder="marca" formControlName="marca" type="text" class="form-control" id="marca" name="marca" aria-describedby="marca">
+        </div>
+
+        <div class="mb-3">
+          <label for="ano" class="form-label">Ano</label>
+          <input placeholder="ano" formControlName="ano" type="text" class="form-control" id="ano" name="ano" aria-describedby="ano">
+        </div>
+       
+        <button type="submit" class="btn btn-primary" (click)="submit()">Salvar</button>
+      </form>
+</div>

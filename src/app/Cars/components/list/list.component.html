@@ -9,6 +9,7 @@
                 <th scope="col">Modelo</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Ano</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,12 @@
                 <td>{{item.modelo}}</td>
                 <td>{{item.marca}}</td>
                 <td>{{item.ano}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button (click)="edit(item.id)" type="button" class="btn btn-warning">Editar</button>
+                        <button (click)="delete(item.id)" type="button" class="btn btn-danger">Excluir</button>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

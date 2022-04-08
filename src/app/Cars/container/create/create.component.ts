@@ -15,8 +15,11 @@ export class CreateComponent implements OnInit {
   }
 
   save(form:Cars){
-    console.log(form)
     this.facade.save(form);
+  }
+
+  update(form:Cars){
+    this.facade.update(form);
   }
 
 }

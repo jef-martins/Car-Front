@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { CARS } from "../model/car.constantes";
 import { Cars } from "../model/cars.model";
 
 @Injectable({
@@ -8,6 +9,7 @@ import { Cars } from "../model/cars.model";
   export class CarState {
   
     public cars = new BehaviorSubject<Cars[]>([]);
+    public editCars = new BehaviorSubject<Cars>(CARS);
   
     constructor() { }
   
@@ -21,6 +23,18 @@ import { Cars } from "../model/cars.model";
   
     get carsCollection(): Cars[] {
       return this.cars.getValue();
+    }
+
+    get editCarsCollection$(): BehaviorSubject<Cars> {
+      return this.editCars;
+    }
+  
+    set editCarsCollection(value: Cars) {
+      this.editCars.next(value);
+    }
+  
+    get editCarsCollection(): Cars {
+      return this.editCars.getValue();
     }
   
   }

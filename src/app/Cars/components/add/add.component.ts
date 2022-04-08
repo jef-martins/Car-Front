@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CARS } from '../../model/car.constantes';
 import { Cars } from '../../model/cars.model';
@@ -11,17 +11,21 @@ import { Cars } from '../../model/cars.model';
 export class AddComponent implements OnInit {
 
   public form!: FormGroup;
-  @Output() onSubmit: EventEmitter<Cars> = new EventEmitter<Cars>();
+  @Input() dadosEdit: Cars | null = CARS;
+  @Output() public onSubmit: EventEmitter<Cars> = new EventEmitter();
+  @Output() public onUpdate: EventEmitter<Cars> = new EventEmitter();
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.form = this.fb.group(CARS);
+    this.form = this.fb.group(this.dadosEdit || CARS);
   }
 
-  submit(){
-    console.log(this.form.value)
-    this.onSubmit.emit(this.form.value);
+  submit() {
+    if (this.dadosEdit?.id)
+      this.onUpdate.emit(this.form.value);
+    else
+      this.onSubmit.emit(this.form.value);
   }
 
 }

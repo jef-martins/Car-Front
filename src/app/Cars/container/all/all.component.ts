@@ -14,4 +14,12 @@ export class AllComponent implements OnInit {
     this.facade.list();
   }
 
+  edit(id: number) {
+    this.facade.select(id);
+  }
+
+  delete(id: number) {
+    this.facade.delete(id);
+  }
+
 }

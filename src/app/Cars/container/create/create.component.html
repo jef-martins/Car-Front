@@ -1,1 +1,1 @@
-<app-add (onSubmit)="save($event)"></app-add>
+<app-add [dadosEdit]="facade.editCar$ | async" (onSubmit)="save($event)" (onUpdate)="update($event)"></app-add>

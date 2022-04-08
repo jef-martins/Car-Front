@@ -20,7 +20,7 @@ export class CarsApi {
         return lastValueFrom(this.httpClient.put<Cars>(this.url + id, request));
     }
 
-    select(request: Cars, id: number): Promise<Cars> {
+    select(id: number): Promise<Cars> {
         return lastValueFrom(this.httpClient.get<Cars>(this.url + id));
     }
 
